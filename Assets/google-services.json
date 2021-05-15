@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "32595432178",
+    "project_id": "gogly-ae4fb",
+    "storage_bucket": "gogly-ae4fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:32595432178:android:4c87614fa2585c375f766b",
+        "android_client_info": {
+          "package_name": "com.drimtim.gogly"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "32595432178-1akmnq65hala4bi4fdsnmjpm3lbug3pd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUG_R3Cxk5JdheFrwhrxCi1BXodgpFvL0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "32595432178-1akmnq65hala4bi4fdsnmjpm3lbug3pd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
