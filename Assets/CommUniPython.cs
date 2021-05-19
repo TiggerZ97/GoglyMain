@@ -16,7 +16,7 @@ public class CommUniPython : MonoBehaviour
     TcpListener listener;
     TcpClient client;
     Vector3 receivedPos = Vector3.zero;
-    public int[] dataFinal;
+    public int[] dataFinal= new int[3];
 
     bool running;
 
