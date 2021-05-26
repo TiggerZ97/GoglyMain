@@ -16,7 +16,9 @@ public class CommUniPython : MonoBehaviour
     TcpListener listener;
     TcpClient client;
     Vector3 receivedPos = Vector3.zero;
-    public int[] dataFinal= new int[3];
+    public double[] data_ESP= new double[3];
+    public double[] data_Wii= new double[5];
+
 
     bool running;
 
@@ -56,20 +58,35 @@ public class CommUniPython : MonoBehaviour
         if (dataReceived != null)
         {
             //---Using received data--
-            Debug.Log(dataReceived.GetType().ToString());
-            dataFinal = StringToInt(dataReceived);
-            print("Recieved bpm, spo2 and state data succesfully!");
-            print(dataReceived);
+            //Debug.Log(dataReceived.GetType().ToString());
+            double[] data_temp = StringToDouble(dataReceived);
+            if(data_temp.Length==3)
+            {
+                Debug.Log("Recieved bpm, spo2 and state data succesfully!");
+                //Debug.Log(data_temp);
+                data_ESP= data_temp;
+            }
+            else if(data_temp.Length==5)
+            {
+                Debug.Log("Recieved weights");
+                //Debug.Log(data_temp);
+                data_Wii = data_temp;
+            }
+            else
+            {
+                Debug.Log("Invalid array");
+            }
+            
 
             //---Sending Data to Host----
-            byte[] myWriteBuffer = Encoding.ASCII.GetBytes("C# says: I got your message Python"); //Converting string to byte data
-            nwStream.Write(myWriteBuffer, 0, myWriteBuffer.Length); //Sending the data in Bytes to Python
+            //byte[] myWriteBuffer = Encoding.ASCII.GetBytes("R"); //Converting string to byte data
+            //nwStream.Write(myWriteBuffer, 0, myWriteBuffer.Length); //Sending the data in Bytes to Python
         }
     }
 
-    int[] StringToInt(string data)
+    double[] StringToDouble(string data)
     {
-        int[] value = Array.ConvertAll(data.Split(','), s => int.Parse(s));
+        double[] value = Array.ConvertAll(data.Split(','), s => double.Parse(s));
         return value;
     }
     /*
