@@ -65,7 +65,22 @@ public class GUIController : MonoBehaviour
         //Update GUI
         text_bpm.text = val_bpm.ToString();
         text_spo2.text = val_spo2.ToString() + '%';
-        text_state.text = val_state.ToString();
+        switch(val_state)
+        {
+            case 1:
+                text_state.text = "NORMAL";
+                text_state.color = Color.green;
+                break;
+            case 2:
+                text_state.text = "WARNING";
+                text_state.color = Color.yellow;
+                break;
+            case 3:
+                text_state.text = "STOP";
+                text_state.color = Color.red;
+                break;
+        }
+
         
         //Update Wii-Mat
         val_left = rwBotLeft + rwTopLeft;
