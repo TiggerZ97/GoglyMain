@@ -5,6 +5,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
 public class GUIController : MonoBehaviour
 {
    public CommUniPython DataManager;
@@ -120,11 +122,44 @@ public class GUIController : MonoBehaviour
             x_pos = 0;
         }
 
-        x_pos = x_pos * 2;
-        aPos.y = Convert.ToSingle(y_pos);
-        aPos.x = Convert.ToSingle(x_pos);
+        float temp_x = Convert.ToSingle(x_pos / rwWeight); //Normalización
+        float temp_y = Convert.ToSingle(y_pos / rwWeight);
+
+        if (rwWeight > 10)
+        {
+            if (x_pos < 0)
+            {
+                temp_x = ExtensionMethods.Remap(temp_x, 0, -1, 0, -180);
+                
+            }
+            else
+            {
+                temp_x = ExtensionMethods.Remap(temp_x, 0, 1, 0, 180);
+            }
+
+            if (y_pos < 0)
+            {
+                temp_y = ExtensionMethods.Remap(temp_y, 0, -1, 0, -90);
+                
+            }
+            else
+            {
+                temp_y = ExtensionMethods.Remap(temp_y, 0, 1, 0, 90);
+            }
+        }
+        else
+        {
+            Debug.Log("No person detected!");
+            temp_x = 0;
+            temp_y = 0;
+        }
+
+        aPos.y = temp_y;
+        aPos.x = temp_x;
         knob.anchoredPosition = aPos;
 
  
     }
+
+   
 }
