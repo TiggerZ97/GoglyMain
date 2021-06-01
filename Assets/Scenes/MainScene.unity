@@ -991,7 +991,7 @@ MonoBehaviour:
   CD_CurrentTime: 0
   CD_StartingTime: 3
   T_CurrentTime: 0
-  T_StartTime: 5
+  T_StartTime: 10
   CDrunning: 1
   Trunning: 0
   panel_act: {fileID: 515165309}
@@ -3978,6 +3978,7 @@ MonoBehaviour:
   - {fileID: 309168207}
   - {fileID: 133549798}
   score: 0
+  isenabled: 1
 --- !u!4 &2089323323
 Transform:
   m_ObjectHideFlags: 0

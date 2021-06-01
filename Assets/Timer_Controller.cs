@@ -36,6 +36,7 @@ public class Timer_Controller : MonoBehaviour
             Trunning = false;
             Debug.Log("Resetting");
             exBeh.score = 0;
+            exBeh.isenabled = true;
         }
 
         #region Timers
@@ -58,6 +59,7 @@ public class Timer_Controller : MonoBehaviour
                 CD_CurrentTime = 0;
                 CD_CurrentTime = CD_StartingTime;
                 txtTime.color = Color.white;
+                
             }
             txtTime.text = temp;
         }
@@ -80,6 +82,7 @@ public class Timer_Controller : MonoBehaviour
             txtScore.text = ("Your Score is: " + exBeh.score);
             exBeh.target_L.SetActive(false);
             exBeh.target_R.SetActive(false);
+            exBeh.isenabled = false;
         }
         float minutes = Mathf.FloorToInt(timetoDisplay / 60);
         float seconds = Mathf.FloorToInt(timetoDisplay % 60);

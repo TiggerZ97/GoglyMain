@@ -16,7 +16,8 @@ public class Excercise_Beh : MonoBehaviour
     private Coroutine cooler;
     private int state = 0;
     private bool loader_flag = false;
-    public int score = 0;
+    public int score = -1;
+    public bool isenabled= true;
     
 
     
@@ -51,25 +52,28 @@ public class Excercise_Beh : MonoBehaviour
     }
     void Update()
     {
-        if(!loader_flag)
+        if (isenabled)
         {
-            if (!target_R.activeSelf && !target_L.activeSelf)
+            if (!loader_flag)
             {
-                score++;
-                cooler = StartCoroutine(Activate());
-                target_R.transform.position = pos_R[state];
-                target_L.transform.position = pos_L[state];
+                if (!target_R.activeSelf && !target_L.activeSelf)
+                {
+                    score++;
+                    cooler = StartCoroutine(Activate());
+                    target_R.transform.position = pos_R[state];
+                    target_L.transform.position = pos_L[state];
 
-                if (state == positions_R.Length - 1)
-                {
-                    state = 0;
-                    return;
+                    if (state == positions_R.Length - 1)
+                    {
+                        state = 0;
+                        return;
+                    }
+                    else
+                    {
+                        state++;
+                    }
+
                 }
-                else
-                {
-                    state++;
-                }
-                
             }
         }
     }
