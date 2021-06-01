@@ -12,7 +12,7 @@ public class BodySourceView : MonoBehaviour
     public GameObject JointObject;
     private Dictionary<ulong, GameObject> mBodies = new Dictionary<ulong, GameObject>();
     
-    private List<JointType> _joints = new List<JointType> { JointType.HandLeft, JointType.HandRight, JointType.Head,JointType.AnkleLeft,JointType.AnkleRight}; //Add Hands
+    private List<JointType> _joints = new List<JointType> { JointType.HandLeft, JointType.HandRight}; //-- HERE YOU CAN ADD JOINTS --
     public mJointColor jJointColorHandLeft;
     public mJointColor jJointColorHandRight;
     public mJointColor jJointColorAnkleLeft;

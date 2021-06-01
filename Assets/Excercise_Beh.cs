@@ -16,6 +16,7 @@ public class Excercise_Beh : MonoBehaviour
     private Coroutine cooler;
     private int state = 0;
     private bool loader_flag = false;
+    public int score = 0;
     
 
     
@@ -54,6 +55,7 @@ public class Excercise_Beh : MonoBehaviour
         {
             if (!target_R.activeSelf && !target_L.activeSelf)
             {
+                score++;
                 cooler = StartCoroutine(Activate());
                 target_R.transform.position = pos_R[state];
                 target_L.transform.position = pos_L[state];

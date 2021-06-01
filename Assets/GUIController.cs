@@ -18,6 +18,7 @@ public class GUIController : MonoBehaviour
     public double y_pos, x_pos;
     public double val_top, val_bot, val_left, val_right;
 
+    public TMP_Text weigth;
     private void Start()
     {
         aPos = knob.anchoredPosition;
@@ -64,12 +65,13 @@ public class GUIController : MonoBehaviour
     }
     private void Update()
     {
+        weigth.text = ("Your weight is: " + Convert.ToInt32(rwWeight).ToString("0") + "Kg");
         //Update GUI
         text_bpm.text = val_bpm.ToString();
         text_spo2.text = val_spo2.ToString() + '%';
         switch(val_state)
         {
-            case 1:
+            case 3:
                 text_state.text = "NORMAL";
                 text_state.color = Color.green;
                 break;
@@ -77,7 +79,7 @@ public class GUIController : MonoBehaviour
                 text_state.text = "WARNING";
                 text_state.color = Color.yellow;
                 break;
-            case 3:
+            case 1:
                 text_state.text = "STOP";
                 text_state.color = Color.red;
                 break;
